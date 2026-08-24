@@ -1,0 +1,132 @@
+.create-ticket {
+
+  max-width: 700px;
+
+  margin: 40px auto;
+
+  padding: 30px;
+
+}
+
+
+.header {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 30px;
+
+}
+
+
+.header h1 {
+
+  margin: 0;
+
+}
+
+
+.header p {
+
+  color: #666;
+
+}
+
+
+.back-button {
+
+  text-decoration: none;
+
+  padding: 10px 16px;
+
+  background: #eee;
+
+  color: #222;
+
+  border-radius: 6px;
+
+}
+
+
+.form-group {
+
+  display: flex;
+
+  flex-direction: column;
+
+  margin-bottom: 20px;
+
+}
+
+
+.form-group label {
+
+  margin-bottom: 7px;
+
+  font-weight: bold;
+
+}
+
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+
+  padding: 11px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 6px;
+
+  font-size: 15px;
+
+}
+
+
+.form-group small {
+
+  margin-top: 5px;
+
+  color: #c00000;
+
+}
+
+
+button {
+
+  padding: 12px 20px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+
+}
+
+
+button:disabled {
+
+  opacity: 0.6;
+
+  cursor: not-allowed;
+
+}
+
+
+.error {
+
+  padding: 12px;
+
+  margin-bottom: 15px;
+
+  background: #ffe5e5;
+
+  color: #a00000;
+
+  border-radius: 6px;
+
+}

@@ -1,0 +1,552 @@
+.dashboard {
+  min-height: 100vh;
+  padding: 40px 30px 60px;
+
+  background: #f5f7fb;
+
+  box-sizing: border-box;
+}
+
+
+
+
+.dashboard > * {
+  max-width: 1140px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+.dashboard-header {
+  margin-bottom: 30px;
+}
+
+.dashboard-header > div {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+
+  color: #101828;
+
+  font-size: 34px;
+
+  font-weight: 700;
+}
+
+.dashboard-header p {
+  margin: 7px 0 0;
+
+  color: #667085;
+
+  font-size: 14px;
+}
+
+.dashboard-header strong {
+  color: #344054;
+}
+
+
+
+
+.create-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 11px 18px;
+
+  border-radius: 8px;
+
+  background: #1976d2;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  box-shadow:
+    0 3px 8px rgba(25, 118, 210, 0.22);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.create-button:hover {
+  background: #1565c0;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 5px 12px rgba(25, 118, 210, 0.28);
+}
+
+
+
+
+.filters {
+  background: #ffffff;
+
+  border: 1px solid #eaecf0;
+
+  border-radius: 14px;
+
+  padding: 25px;
+
+  margin-bottom: 25px;
+
+  box-shadow:
+    0 4px 14px rgba(16, 24, 40, 0.05);
+}
+
+.filters h2 {
+  margin: 0 0 20px;
+
+  color: #101828;
+
+  font-size: 22px;
+
+  font-weight: 650;
+}
+
+.filter-row {
+  display: flex;
+
+  align-items: flex-end;
+
+  gap: 14px;
+
+  flex-wrap: wrap;
+}
+
+.filter-row > div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.filter-row label {
+  color: #344054;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+
+
+
+.filter-row select {
+  min-width: 150px;
+
+  height: 42px;
+
+  padding: 0 12px;
+
+  border: 1px solid #d0d5dd;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #344054;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.filter-row select:hover {
+  border-color: #98a2b3;
+}
+
+.filter-row select:focus {
+  outline: none;
+
+  border-color: #84adff;
+
+  box-shadow:
+    0 0 0 3px rgba(47, 111, 235, 0.12);
+}
+
+
+
+
+.filter-row button {
+  height: 42px;
+
+  padding: 0 17px;
+
+  border-radius: 8px;
+
+  border: 1px solid #d0d5dd;
+
+  background: #ffffff;
+
+  color: #344054;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.filter-row button:hover {
+  background: #f9fafb;
+
+  border-color: #98a2b3;
+
+  transform: translateY(-1px);
+}
+
+
+
+
+.filter-row button:first-of-type {
+  border-color: #1976d2;
+
+  background: #1976d2;
+
+  color: #ffffff;
+}
+
+.filter-row button:first-of-type:hover {
+  background: #1565c0;
+
+  border-color: #1565c0;
+}
+
+
+
+
+.tickets {
+  background: #ffffff;
+
+  border: 1px solid #eaecf0;
+
+  border-radius: 14px;
+
+  overflow-x: auto;
+
+  box-shadow:
+    0 4px 14px rgba(16, 24, 40, 0.05);
+}
+
+.tickets table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  min-width: 850px;
+}
+
+
+
+
+.tickets thead {
+  background: #f8fafc;
+}
+
+.tickets th {
+  padding: 15px 14px;
+
+  text-align: left;
+
+  border-bottom: 1px solid #eaecf0;
+
+  color: #475467;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.03em;
+}
+
+
+
+
+.tickets td {
+  padding: 17px 14px;
+
+  border-bottom: 1px solid #f0f2f5;
+
+  color: #344054;
+
+  font-size: 14px;
+
+  vertical-align: middle;
+}
+
+.tickets tbody tr {
+  transition: background 0.15s ease;
+}
+
+.tickets tbody tr:hover {
+  background: #f8fbff;
+}
+
+.tickets tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+
+
+.tickets td:first-child {
+  color: #667085;
+
+  font-family: monospace;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+
+
+
+.tickets td:nth-child(2) {
+  color: #101828;
+
+  font-weight: 600;
+
+  max-width: 300px;
+}
+
+
+
+
+.tickets td:nth-child(3) {
+  font-weight: 600;
+}
+
+
+
+
+.tickets td:nth-child(4) {
+  font-weight: 500;
+}
+
+
+
+
+.tickets td:last-child {
+  white-space: nowrap;
+}
+
+.tickets td a {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 7px 12px;
+
+  border-radius: 7px;
+
+  background: #eef4ff;
+
+  color: #175cd3;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.tickets td a:hover {
+  background: #dbe9ff;
+
+  color: #1849a9;
+}
+
+
+
+
+.tickets > div[ng-reflect-ng-if] {
+  padding: 30px;
+
+  text-align: center;
+
+  color: #667085;
+}
+
+
+
+
+.error {
+  margin: 20px;
+
+  padding: 14px 16px;
+
+  border-radius: 8px;
+
+  background: #fef3f2;
+
+  border: 1px solid #fecdca;
+
+  color: #b42318;
+
+  font-size: 14px;
+}
+
+
+
+
+.pagination {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  margin-top: 22px;
+}
+
+.pagination button {
+  padding: 9px 16px;
+
+  border: 1px solid #d0d5dd;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #344054;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #f9fafb;
+
+  border-color: #98a2b3;
+}
+
+.pagination button:disabled {
+  opacity: 0.45;
+
+  cursor: not-allowed;
+}
+
+.pagination span {
+  color: #667085;
+
+  font-size: 13px;
+
+  font-weight: 500;
+}
+
+
+
+
+.dashboard > p {
+  max-width: 1140px;
+
+  margin-top: 18px;
+
+  color: #667085;
+
+  font-size: 13px;
+}
+
+
+
+
+@media (max-width: 750px) {
+
+  .dashboard {
+    padding: 25px 15px 40px;
+  }
+
+  .dashboard-header > div {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .dashboard-header h1 {
+    font-size: 28px;
+  }
+
+  .create-button {
+    width: 100%;
+
+    box-sizing: border-box;
+  }
+
+  .filters {
+    padding: 20px;
+  }
+
+  .filter-row {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .filter-row > div {
+    width: 100%;
+  }
+
+  .filter-row select {
+    width: 100%;
+  }
+
+  .filter-row button {
+    width: 100%;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+  }
+
+}

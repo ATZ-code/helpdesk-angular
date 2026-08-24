@@ -1,0 +1,358 @@
+<div class="ticket-detail">
+
+  <!-- HEADER -->
+
+  <div class="header">
+
+    <div>
+
+      <h1>
+        Detalle del ticket
+      </h1>
+
+      <p *ngIf="ticket">
+        {{ ticket.id }}
+      </p>
+
+    </div>
+
+
+    <a
+      routerLink="/dashboard"
+      class="back-button">
+
+      ← Volver a tickets
+
+    </a>
+
+  </div>
+
+
+  <!-- CARGANDO TICKET -->
+
+  <div *ngIf="loading" class="loading">
+
+    Cargando ticket...
+
+  </div>
+
+
+  <!-- ERROR TICKET -->
+
+  <div
+    *ngIf="errorMessage"
+    class="error">
+
+    {{ errorMessage }}
+
+  </div>
+
+
+  <!-- INFORMACIÓN DEL TICKET -->
+
+  <section
+    *ngIf="!loading && ticket"
+    class="ticket-card">
+
+
+    <div class="ticket-title">
+
+      <h2>
+        {{ ticket.title }}
+      </h2>
+
+    </div>
+
+
+    <div class="ticket-info">
+
+      <div class="info-item">
+
+        <strong>ID</strong>
+
+        <span>
+          {{ ticket.id }}
+        </span>
+
+      </div>
+
+
+      <div class="info-item">
+
+        <strong>Prioridad</strong>
+
+        <span>
+          {{ getPriorityLabel(ticket.priority) }}
+        </span>
+
+      </div>
+
+
+      <div class="info-item">
+
+        <strong>Estado</strong>
+
+        <span>
+          {{ getStatusLabel(ticket.status) }}
+        </span>
+
+      </div>
+
+
+      <div class="info-item">
+
+        <strong>Creado por</strong>
+
+        <span>
+          {{ ticket.createdBy }}
+        </span>
+
+      </div>
+
+
+      <div class="info-item">
+
+        <strong>Asignado a</strong>
+
+        <span>
+          {{ ticket.assignedTo || 'Sin asignar' }}
+        </span>
+
+      </div>
+
+
+      <div class="info-item">
+
+        <strong>Creado</strong>
+
+        <span>
+          {{ ticket.createdAt | date:'dd/MM/yyyy HH:mm' }}
+        </span>
+
+      </div>
+
+
+      <div class="info-item">
+
+        <strong>Actualizado</strong>
+
+        <span>
+          {{ ticket.updatedAt | date:'dd/MM/yyyy HH:mm' }}
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- DESCRIPCIÓN -->
+
+    <div class="description">
+
+      <h3>
+        Descripción
+      </h3>
+
+      <p>
+        {{ ticket.description }}
+      </p>
+
+    </div>
+
+
+  </section>
+
+
+  <!-- COMENTARIOS -->
+
+  <section
+    *ngIf="!loading && ticket"
+    class="comments-card">
+
+
+    <div class="comments-header">
+
+      <div>
+
+        <h2>
+          Comentarios
+        </h2>
+
+        <p>
+          Historial de comentarios del ticket
+        </p>
+
+      </div>
+
+
+      <span class="comments-count">
+
+        {{ comments.length }}
+
+      </span>
+
+    </div>
+
+
+    <!-- CARGANDO COMENTARIOS -->
+
+    <div
+      *ngIf="commentsLoading"
+      class="loading">
+
+      Cargando comentarios...
+
+    </div>
+
+
+    <!-- ERROR COMENTARIOS -->
+
+    <div
+      *ngIf="commentsErrorMessage"
+      class="error">
+
+      {{ commentsErrorMessage }}
+
+    </div>
+
+
+    <!-- SIN COMENTARIOS -->
+
+    <div
+      *ngIf="
+        !commentsLoading &&
+        !commentsErrorMessage &&
+        comments.length === 0
+      "
+      class="empty-comments">
+
+      Este ticket todavía no tiene comentarios.
+
+    </div>
+
+
+    <!-- LISTA DE COMENTARIOS -->
+
+    <div
+      *ngIf="
+        !commentsLoading &&
+        comments.length > 0
+      "
+      class="comments-list">
+
+
+      <article
+        *ngFor="let comment of comments"
+        class="comment">
+
+
+        <div class="comment-header">
+
+          <div>
+
+            <strong>
+              {{ comment.author.name }}
+            </strong>
+
+            <span class="role">
+
+              {{ getRoleLabel(comment.author.role) }}
+
+            </span>
+
+          </div>
+
+
+          <span class="comment-date">
+
+            {{ comment.createdAt | date:'dd/MM/yyyy HH:mm' }}
+
+          </span>
+
+        </div>
+
+
+        <p class="comment-body">
+
+          {{ comment.body }}
+
+        </p>
+
+
+      </article>
+
+
+    </div>
+
+
+    <!-- AGREGAR COMENTARIO -->
+
+    <div class="add-comment">
+
+      <h3>
+        Agregar comentario
+      </h3>
+
+
+      <!-- TICKET CERRADO -->
+
+      <div
+        *ngIf="ticket.status === 'closed'"
+        class="closed-message">
+
+        Este ticket está cerrado y no admite nuevos comentarios.
+
+      </div>
+
+
+      <!-- FORMULARIO -->
+
+      <div
+        *ngIf="ticket.status !== 'closed'">
+
+
+        <textarea
+          [(ngModel)]="newComment"
+          rows="5"
+          placeholder="Escribe tu comentario..."
+          [disabled]="submittingComment">
+        </textarea>
+
+
+        <div
+          *ngIf="commentErrorMessage"
+          class="comment-error">
+
+          {{ commentErrorMessage }}
+
+        </div>
+
+
+        <button
+          type="button"
+          class="comment-button"
+          (click)="addComment()"
+          [disabled]="submittingComment || !newComment.trim()">
+
+
+          <span *ngIf="!submittingComment">
+            Agregar comentario
+          </span>
+
+
+          <span *ngIf="submittingComment">
+            Enviando...
+          </span>
+
+
+        </button>
+
+      </div>
+
+
+    </div>
+
+
+  </section>
+
+</div>
